@@ -1,3 +1,4 @@
+#!/bin/bash
 #update sources
 sudo apt update
 
