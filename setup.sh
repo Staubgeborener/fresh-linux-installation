@@ -1,6 +1,7 @@
 #!/bin/bash
-#update sources
-sudo apt update
+
+#update sources and upgrade
+sudo apt update && apt upgrade
 
 #install git
 sudo apt install git
@@ -13,4 +14,3 @@ sudo gem install pygments.rb rouge coderay
 #install AsciidocFX 1.7.3
 wget https://github.com/asciidocfx/AsciidocFX/releases/download/v1.7.3/AsciidocFX_Linux.tar.gz
 tar -xzf AsciidocFX_Linux.tar.gz
-sh ./AsciidocFX/AsciidocFX
