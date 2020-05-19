@@ -15,5 +15,5 @@ sudo gem install pygments.rb rouge coderay
 wget https://github.com/asciidocfx/AsciidocFX/releases/download/v1.7.3/AsciidocFX_Linux.tar.gz
 tar -xzf AsciidocFX_Linux.tar.gz
 
-#virtualization with VirtualBox - install GuestAdditions
-#sudo mkdir /media/cdrom && sudo mount /dev/cdrom /media/cdrom && sudo sh /media/cdrom/VBoxLinuxAdditions.run
+#if virtualization with VirtualBox detected -> install GuestAdditions
+if grep -Fxq "VirtualBox" /sys/class/dmi/id/product_name; then sudo mkdir /media/cdrom && sudo mount /dev/cdrom /media/cdrom && sudo sh /media/cdrom/VBoxLinuxAdditions.run; fi
