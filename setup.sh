@@ -55,7 +55,7 @@ pip install distorm3
 sudo snap install pycharm-community --classic
 
 #forensic machine
-if [ "$yn" != "${yn#[Yy]}" ] ;then; then
+if [ "$yn" != "${yn#[Yy]}" ]; then
         #install Zeitgeist and Sqilitebrowser
         sudo apt -y install zeitgeist-explorer
         sudo apt -y install sqlitebrowser
