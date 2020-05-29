@@ -10,7 +10,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 get_machine_style() {
-    read -p "Is this a forensic machine? That would mean that Sleuthkit, EWF, Xmount, LiME, Volatility, ... (and many more) will also be installed" yn
+    read -p "Is this a forensic machine? That would mean that Sleuthkit, EWF, Xmount, LiME, Volatility, ... (and many more) will also be installed " yn
     case $yn in
         [Yy]* )
 		return 0
@@ -18,7 +18,7 @@ get_machine_style() {
         [Nn]* )
 		return 0
 		;;
-        * ) 	printf "Please answer yes or no."
+        * ) 	printf "Please answer yes or no.\n"
 		return 1
 		;;
     esac
