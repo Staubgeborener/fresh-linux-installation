@@ -30,7 +30,8 @@ until get_machine_style; do : ; done
 sudo apt -y update && apt -y upgrade
 
 #if virtualization with VirtualBox detected -> install GuestAdditions (add GuestAddition.iso in VirtualBox!)
-if grep -Fxq "VirtualBox" /sys/class/dmi/id/product_name; then sudo mkdir /media/cdrom && sudo mount /dev/cdrom /media/cdrom && sudo sh /media/cdrom/VBoxLinuxAdditions.run; fi
+GAs_device=$(lsblk | grep VBox_GA | awk '{ printf $1 }')
+if grep -Fxq "VirtualBox" /sys/class/dmi/id/product_name; then sudo mkdir /media/cdrom && sudo mount /dev/$GAs_device /media/cdrom && sudo sh /media/cdrom/VBoxLinuxAdditions.run; fi
 
 #install git
 sudo apt -y install git
