@@ -89,4 +89,7 @@ if [[ $yn == "Y" ]] || [[ $yn == "y" ]]; then
         cd ../../..
 fi
 
+#edit favorites in gnome
+gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome-Terminal.desktop']"
+
 reboot
