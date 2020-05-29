@@ -33,10 +33,10 @@ sudo apt update && apt upgrade
 if grep -Fxq "VirtualBox" /sys/class/dmi/id/product_name; then sudo mkdir /media/cdrom && sudo mount /dev/cdrom /media/cdrom && sudo sh /media/cdrom/VBoxLinuxAdditions.run; fi
 
 #install git
-sudo apt install git
+sudo apt -y install git
 
 #install asciidoc
-sudo apt install asciidoc asciidoctor
+sudo apt -y install asciidoc asciidoctor
 sudo gem install asciidoctor asciidoctor-pdf --pre
 sudo gem install pygments.rb rouge coderay
 
@@ -46,7 +46,7 @@ tar -xzf AsciidocFX_Linux.tar.gz
 
 #install pycharm
 sudo snap install pycharm-community --classic
-sudo apt-get install python3-distutils
+sudo apt -y install python3-distutils
 
 #install python, pip and pycharm
 sudo apt -y install python3.6
