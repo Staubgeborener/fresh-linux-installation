@@ -9,32 +9,24 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-while true; do
+get_machine_style() {
     read -p "Is this a forensic machine? That would mean that Sleuthkit, EWF, Xmount, LiME, Volatility, ... (and many more) will also be installed" yn
     case $yn in
         [Yy]* )
+		return 0
+		;;
         [Nn]* )
-        * ) printf "Please answer yes or no.";;
+		return 0
+		;;
+        * ) 	printf "Please answer yes or no."
+		return 1
+		;;
     esac
-done
-
-get_vm() {
-        read -p "Ist dies die Plaso [P] oder Xmount/EWF/Sleuthkit/Vol/LiME [X] VM? P oder X eingeben: " vm
-        case $vm in
-                p|P)
-                        return 0
-                        ;;
-                x|X)
-                        return 0
-                        ;;
-                *)
-                        echo -e "\nUngültiger Input\n"
-                        return 1
-                        ;;
-        esac
 }
 
-until get_vm; do : ; done
+until get_machine_style; do : ; done
+
+sleep 5
 
 #update sources and upgrade
 sudo apt update && apt upgrade
@@ -67,12 +59,12 @@ pip install distorm3
 sudo apt -y install python3-distutils
 sudo snap install pycharm-community --classic
 
-        
+
 if [[ $yn == "Y" ]] || [[ $vm == "y" ]]; then
         #install Zeitgeist and Sqilitebrowser
         sudo apt -y install zeitgeist-explorer
         sudo apt -y install sqlitebrowser
-        
+
         #install Xmount and EWF
         sudo apt -y install sleuthkit
         sudo apt -y install mdadm
@@ -89,7 +81,7 @@ if [[ $yn == "Y" ]] || [[ $vm == "y" ]]; then
         cd ./LiME/src
         make
         cd ../..
-        
+
         #install volatility (v2.6 - Released: December 2016)
         wget http://downloads.volatilityfoundation.org/releases/2.6/volatility-2.6.zip
         unzip volatility-2.6.zip
