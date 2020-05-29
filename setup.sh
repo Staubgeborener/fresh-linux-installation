@@ -88,3 +88,5 @@ if [[ $yn == "Y" ]] || [[ $yn == "y" ]]; then
         make
         cd ../../..
 fi
+
+reboot
