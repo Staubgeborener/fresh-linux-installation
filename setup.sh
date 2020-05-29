@@ -27,7 +27,7 @@ get_machine_style() {
 until get_machine_style; do : ; done
 
 #update sources and upgrade
-sudo apt update && apt upgrade
+sudo apt -y update && apt -y upgrade
 
 #if virtualization with VirtualBox detected -> install GuestAdditions (add GuestAddition.iso in VirtualBox!)
 if grep -Fxq "VirtualBox" /sys/class/dmi/id/product_name; then sudo mkdir /media/cdrom && sudo mount /dev/cdrom /media/cdrom && sudo sh /media/cdrom/VBoxLinuxAdditions.run; fi
