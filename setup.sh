@@ -26,8 +26,6 @@ get_machine_style() {
 
 until get_machine_style; do : ; done
 
-sleep 5
-
 #update sources and upgrade
 sudo apt update && apt upgrade
 
