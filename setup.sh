@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ANSI escape codes for color
+#ANSI escape codes for color
 RED='\033[0;31m'
 NC='\033[0m'
 
@@ -53,7 +53,7 @@ pip install --upgrade setuptools
 pip install distorm3
 sudo snap install pycharm-community --classic
 
-
+#forensic machine
 if [[ $yn == "Y" ]] || [[ $yn == "y" ]]; then
         #install Zeitgeist and Sqilitebrowser
         sudo apt -y install zeitgeist-explorer
