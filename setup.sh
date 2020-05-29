@@ -58,7 +58,7 @@ sudo apt -y install python3-distutils
 sudo snap install pycharm-community --classic
 
 
-if [[ $yn == "Y" ]] || [[ $vm == "y" ]]; then
+if [[ $yn == "Y" ]] || [[ $yn == "y" ]]; then
         #install Zeitgeist and Sqilitebrowser
         sudo apt -y install zeitgeist-explorer
         sudo apt -y install sqlitebrowser
