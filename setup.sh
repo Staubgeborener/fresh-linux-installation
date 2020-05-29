@@ -63,7 +63,7 @@ if [[ $yn == "Y" ]] || [[ $vm == "y" ]]; then
         sudo apt -y install zeitgeist-explorer
         sudo apt -y install sqlitebrowser
 
-        #install Xmount and EWF
+        #install Sleuthkit, mdadm, EWF, Xmount, Kpartx, cryptsetup and some R00tkit-Hunter
         sudo apt -y install sleuthkit
         sudo apt -y install mdadm
         sudo apt -y install ewf-tools
@@ -76,6 +76,7 @@ if [[ $yn == "Y" ]] || [[ $vm == "y" ]]; then
 
         #install lime
         git clone https://github.com/504ensicsLabs/LiME/
+        #jump through directories because otherwise 'make' fails
         cd ./LiME/src
         make
         cd ../..
