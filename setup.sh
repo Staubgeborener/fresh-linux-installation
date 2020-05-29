@@ -91,6 +91,6 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
 fi
 
 #edit favorites in gnome
-gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome-Terminal.desktop']"
+gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Terminal.desktop']"
 
 reboot
