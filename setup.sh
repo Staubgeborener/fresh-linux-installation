@@ -44,17 +44,13 @@ sudo gem install pygments.rb rouge coderay
 wget https://github.com/asciidocfx/AsciidocFX/releases/download/v1.7.3/AsciidocFX_Linux.tar.gz
 tar -xzf AsciidocFX_Linux.tar.gz
 
-#install pycharm
-sudo snap install pycharm-community --classic
-sudo apt -y install python3-distutils
-
 #install python, pip and pycharm
 sudo apt -y install python3.6
 sudo apt -y install python3-pip
 sudo apt -y install python-pip
+sudo apt -y install python3-distutils
 pip install --upgrade setuptools
 pip install distorm3
-sudo apt -y install python3-distutils
 sudo snap install pycharm-community --classic
 
 
