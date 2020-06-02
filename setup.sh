@@ -70,26 +70,9 @@ else
     exit 1
 fi
 
-#forensic machine and apt
-if [ "$yn" != "${yn#[Yy]}" ] && [ ! -z $APT-pkgmgr ]; then
-    #install Zeitgeist and Sqilitebrowser
-    sudo apt -y install zeitgeist-explorer
-    sudo apt -y install sqlitebrowser
-
-    #install Sleuthkit, mdadm, EWF, Xmount, Kpartx, cryptsetup and some R00tkit-Hunter
-    sudo apt -y install sleuthkit
-    sudo apt -y install mdadm
-    sudo apt -y install ewf-tools
-    sudo apt -y install xmount
-    sudo apt -y install kpartx
-    sudo apt -y install whois
-    sudo apt -y install cryptsetup-bin
-    sudo apt -y install chkrootkit
-    sudo apt -y install rkhunter
-	
-    #install plaso (support only for Ubuntu 18.04 LTS (bionic) and 20.04 LTS (focal)!)
-    #sudo apt-get -y install plaso-tools
-
+#forensic machine
+if [ "$yn" != "${yn#[Yy]}" ]; then
+    
     #install lime
     git clone https://github.com/504ensicsLabs/LiME/
     #jump through directories because otherwise 'make' fails
@@ -107,10 +90,31 @@ if [ "$yn" != "${yn#[Yy]}" ] && [ ! -z $APT-pkgmgr ]; then
     cd ./tools/linux
     make
     cd ../../..
+
+    #forensic machine and apt
+    if [ ! -z $APT-pkgmgr ]; then
+        #install Zeitgeist and Sqilitebrowser
+        sudo apt -y install zeitgeist-explorer
+        sudo apt -y install sqlitebrowser
+
+        #install Sleuthkit, mdadm, EWF, Xmount, Kpartx, cryptsetup and some R00tkit-Hunter
+        sudo apt -y install sleuthkit
+        sudo apt -y install mdadm
+        sudo apt -y install ewf-tools
+        sudo apt -y install xmount
+        sudo apt -y install kpartx
+        sudo apt -y install whois
+        sudo apt -y install cryptsetup-bin
+        sudo apt -y install chkrootkit
+        sudo apt -y install rkhunter
+	
+        #install plaso (support only for Ubuntu 18.04 LTS (bionic) and 20.04 LTS (focal)!)
+        #sudo apt-get -y install plaso-tools
     
-#forensic machine and pacman
-elif [ "$yn" != "${yn#[Yy]}" ] && [ ! -z $PACMAN-pkgmgr ]; then
-    #adding forensic programs for arch
+    #forensic machine and pacman
+    elif [ ! -z $PACMAN-pkgmgr ]; then
+        #adding forensic programs for arch
+    fi
 fi
 
 #edit favorites in gnome
