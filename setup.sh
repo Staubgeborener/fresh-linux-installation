@@ -109,7 +109,7 @@ if [ "$yn" != "${yn#[Yy]}" ] && [ ! -z $APT-pkgmgr ]; then
     cd ../../..
     
 #forensic machine and pacman
-elif [ "$yn" != "${yn#[Yy]}" ] && [ ! -z $APT-pkgmgr ]; then
+elif [ "$yn" != "${yn#[Yy]}" ] && [ ! -z $PACMAN-pkgmgr ]; then
     #adding forensic programs for arch
 fi
 
