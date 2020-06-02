@@ -55,7 +55,7 @@ if [ ! -z $(which apt-get) ]; then
     
 #PACMAN
 elif [ ! -z $(which pacman) ]; then
-    echo "pacman -Sy ...."
+    echo "placeholder"
 
 else
     printf "${RED}Abort: Cannot determine package manager (neither apt nor pacman)${NC}\n"
@@ -105,7 +105,7 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
     
     #forensic machine and pacman
     elif [ ! -z $(which pacman) ]; then
-        #adding forensic programs for arch
+        echo "placeholder"
     fi
 fi
 
