@@ -48,15 +48,14 @@ if [ ! -z $(which apt-get) ]; then
     sudo apt -y install python3.6
     sudo apt -y install python3-pip
     sudo apt -y install python-pip
+    sudo -H pip install --upgrade pip setuptools
+    sudo -H pip install sistorm3 pycrypto openpyxl Pillow
     sudo apt -y install python3-distutils
-    pip install --upgrade setuptools
-    pip install distorm3
     sudo snap install pycharm-community --classic
     
 #PACMAN
 elif [ ! -z $(which pacman) ]; then
     echo "placeholder"
-
 else
     printf "${RED}Abort: Cannot determine package manager (neither apt nor pacman)${NC}\n"
     exit 1
