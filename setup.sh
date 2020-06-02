@@ -35,10 +35,6 @@ if [ ! -z $APT-pkgmgr ]; then
     #update sources and upgrade
     sudo apt -y update && apt -y upgrade
 
-    #if virtualization with VirtualBox detected -> install GuestAdditions (add GuestAddition.iso in VirtualBox!)
-    GAs_device=$(lsblk | grep VBox_GA | awk '{ printf $1 }')
-    if grep -Fxq "VirtualBox" /sys/class/dmi/id/product_name; then sudo mkdir /media/cdrom && sudo mount /dev/$GAs_device /media/cdrom && sudo sh /media/cdrom/VBoxLinuxAdditions.run; fi
-
     #install git
     sudo apt -y install git
 
@@ -116,6 +112,10 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
         #adding forensic programs for arch
     fi
 fi
+
+#if virtualization with VirtualBox detected -> install GuestAdditions (add GuestAddition.iso in VirtualBox!)
+GAs_device=$(lsblk | grep VBox_GA | awk '{ printf $1 }')
+if grep -Fxq "VirtualBox" /sys/class/dmi/id/product_name; then sudo mkdir /media/cdrom && sudo mount /dev/$GAs_device /media/cdrom && sudo sh /media/cdrom/VBoxLinuxAdditions.run; fi
 
 #edit favorites in gnome
 gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'org.gnome.Terminal.desktop']"
