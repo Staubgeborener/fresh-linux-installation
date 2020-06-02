@@ -27,11 +27,11 @@ get_machine_style() {
 until get_machine_style; do : ; done
 
 #it is an arch-like distro?
-APT-pkgmgr=$(which apt-get)
-PACMAN-pkgmgr=$(which pacman)
+#APT-pkgmgr=$(which apt-get)
+#PACMAN-pkgmgr=$(which pacman)
 
 #APT
-if [ ! -z $APT-pkgmgr ]; then
+if [ ! -z $(which apt-get) ]; then
     #update sources and upgrade
     sudo apt -y update && apt -y upgrade
 
@@ -58,7 +58,7 @@ if [ ! -z $APT-pkgmgr ]; then
     sudo snap install pycharm-community --classic
     
 #PACMAN
-elif [ ! -z $PACMAN-pkgmgr ]; then
+elif [ ! -z $(which pacman) ]; then
     #pacman -Sy ....
 
 else
@@ -88,7 +88,7 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
     cd ../../..
 
     #forensic machine and apt
-    if [ ! -z $APT-pkgmgr ]; then
+    if [ ! -z $(which apt-get) ]; then
         #install Zeitgeist and Sqilitebrowser
         sudo apt -y install zeitgeist-explorer
         sudo apt -y install sqlitebrowser
@@ -108,7 +108,7 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
         #sudo apt-get -y install plaso-tools
     
     #forensic machine and pacman
-    elif [ ! -z $PACMAN-pkgmgr ]; then
+    elif [ ! -z $(which pacman) ]; then
         #adding forensic programs for arch
     fi
 fi
