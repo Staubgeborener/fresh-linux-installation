@@ -27,8 +27,6 @@ get_machine_style() {
 until get_machine_style; do : ; done
 
 #it is an arch-like distro?
-#APT-pkgmgr=$(which apt-get)
-#PACMAN-pkgmgr=$(which pacman)
 
 #APT
 if [ ! -z $(which apt-get) ]; then
