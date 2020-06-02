@@ -4,6 +4,7 @@ Just my setup after a fresh reinstall of my linux distribution. Support for apt 
 I will update this from time to time.
 
 ## How to use
+Run as root:
 ```shell
-sudo bash <(curl -s https://raw.githubusercontent.com/Staubgeborener/fresh-linux-installation/master/setup.sh)
+bash <(curl -s https://raw.githubusercontent.com/Staubgeborener/fresh-linux-installation/master/setup.sh)
 ```
