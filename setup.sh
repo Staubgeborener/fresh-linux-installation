@@ -26,8 +26,6 @@ get_machine_style() {
 
 until get_machine_style; do : ; done
 
-#it is an arch-like distro?
-
 #APT
 if [ ! -z $(which apt-get) ]; then
     #update sources and upgrade
@@ -57,7 +55,7 @@ if [ ! -z $(which apt-get) ]; then
     
 #PACMAN
 elif [ ! -z $(which pacman) ]; then
-    #pacman -Sy ....
+    echo "pacman -Sy ...."
 
 else
     printf "${RED}Abort: Cannot determine package manager (neither apt nor pacman)${NC}\n"
