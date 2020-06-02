@@ -45,11 +45,11 @@ if [ ! -z $(which apt-get) ]; then
     sudo rm AsciidocFX_Linux.tar.gz
 
     #install python, pip and pycharm
-    sudo apt -y install python3.6
-    sudo apt -y install python3-pip
     sudo apt -y install python-pip
     sudo -H pip install --upgrade pip setuptools
     sudo -H pip install distorm3 pycrypto openpyxl Pillow
+    sudo apt -y install python3.6
+    sudo apt -y install python3-pip
     sudo apt -y install python3-distutils
     sudo snap install pycharm-community --classic
     
