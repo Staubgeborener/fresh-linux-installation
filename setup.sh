@@ -73,7 +73,7 @@ elif [ ! -z $(which pacman) ]; then
     #install asciidoc
     #git clone https://aur.archlinux.org/asciidoctor-pdf.git
     #cd ./asciidoctor-pdf
-    #makepkg -s --noconfirm
+    #makepkg -si --noconfirm
     #cd ..
     #sudo gem install asciidoctor asciidoctor-pdf --pre
     #sudo gem install pygments.rb rouge coderay
@@ -81,7 +81,7 @@ elif [ ! -z $(which pacman) ]; then
     #install AsciidocFX 1.7.2
     #git clone https://aur.archlinux.org/asciidocfx.git
     #cd asciidocfx
-    #makepkg -s --noconfirm
+    #makepkg -sii --noconfirm
     #cd ..
     
 else
@@ -132,7 +132,16 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
     
     #forensic machine and pacman
     elif [ ! -z $(which pacman) ]; then
-        echo "placeholder"
+        #install Sleuthkit, mdadm, EWF, Xmount, Kpartx, cryptsetup and some R00tkit-Hunter
+        sudo pacman -S sleuthkit --noconfirm
+	sudo pacman -S mdadm --noconfirm
+	sudo pacman -S ewf-tools --noconfirm
+	sudo pacman -S xmount --noconfirm
+	sudo pacman -S kpartx --noconfirm
+	sudo pacman -S whois --noconfirm
+	sudo pacman -S cryptsetup-bin --noconfirm
+	sudo pacman -S chkrootkit --noconfirm
+	sudo pacman -S rkhunter --noconfirm
     fi
 fi
 
