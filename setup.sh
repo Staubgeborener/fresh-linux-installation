@@ -55,7 +55,27 @@ if [ ! -z $(which apt-get) ]; then
     
 #PACMAN
 elif [ ! -z $(which pacman) ]; then
-    echo "placeholder"
+    #update sources and upgrade
+    sudo pacman -Syu --noconfirm
+    
+    #install git
+    sudo pacman -S git base-devel --noconfirm
+    
+    #install asciidoc
+    #git clone https://aur.archlinux.org/asciidoctor-pdf.git
+    #cd ./asciidoctor-pdf
+    #makepkg -s --noconfirm
+    #cd ..
+    #sudo gem install asciidoctor asciidoctor-pdf --pre
+    #sudo gem install pygments.rb rouge coderay
+
+    #install AsciidocFX 1.7.2
+    #git clone https://aur.archlinux.org/asciidocfx.git
+    #cd asciidocfx
+    #makepkg -s --noconfirm
+    #cd ..
+    
+    
 else
     printf "${RED}Abort: Cannot determine package manager (neither apt nor pacman)${NC}\n"
     exit 1
