@@ -140,7 +140,12 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
         sudo pacman -S sleuthkit --noconfirm
 	sudo pacman -S mdadm --noconfirm
 	sudo pacman -S ewf-tools --noconfirm
+	
+	#afflib is a dependency on xmount
+	git clone https://aur.archlinux.org/afflib.git
+	(cd afflib && makepkg -si --noconfirm)
 	sudo pacman -S xmount --noconfirm
+	
 	sudo pacman -S kpartx --noconfirm
 	sudo pacman -S whois --noconfirm
 	sudo pacman -S cryptsetup-bin --noconfirm
