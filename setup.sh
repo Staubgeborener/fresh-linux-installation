@@ -113,8 +113,8 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
     #forensic machine and apt
     if [ ! -z $(which apt-get) ]; then
         #install Zeitgeist and Sqilitebrowser
-        sudo apt -y install zeitgeist-explorer
-        sudo apt -y install sqlitebrowser
+        sudo apt -y zeitgeist-explorer
+        sudo apt -y sqlitebrowser
 
         #install Sleuthkit, mdadm, EWF, Xmount, Kpartx, cryptsetup and some R00tkit-Hunter
         sudo apt -y install sleuthkit
