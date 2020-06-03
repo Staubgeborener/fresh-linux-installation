@@ -132,6 +132,10 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
     
     #forensic machine and pacman
     elif [ ! -z $(which pacman) ]; then
+        #install Zeitgeist and Sqilitebrowser
+        sudo pacman -S install zeitgeist-explorer --noconfirm
+        sudo pacman -S install sqlitebrowser --noconfirm
+
         #install Sleuthkit, mdadm, EWF, Xmount, Kpartx, cryptsetup and some R00tkit-Hunter
         sudo pacman -S sleuthkit --noconfirm
 	sudo pacman -S mdadm --noconfirm
