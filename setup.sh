@@ -99,12 +99,10 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
     make
     cd ../..
 
-    #install volatility (v2.6 - Released: December 2016)
-    wget http://downloads.volatilityfoundation.org/releases/2.6/volatility-2.6.zip
-    unzip volatility-2.6.zip
-    sudo rm volatility-2.6.zip
+    #install volatility (v2.6.1 - Released: December 2018)
+    git clone https://github.com/volatilityfoundation/volatility
     #jump through directories because otherwise 'make' fails
-    cd ./volatility-master
+    cd ./volatility
     sudo apt-get install dwarfdump
     cd ./tools/linux
     make
