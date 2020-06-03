@@ -58,6 +58,15 @@ elif [ ! -z $(which pacman) ]; then
     #update sources and upgrade
     sudo pacman -Syu --noconfirm
     
+    #install kernel-headers
+    #uname -r
+    #sudo pacman -Ss linux | grep core/linux
+    #sudo pacman -S linux56-headers
+
+    #sudo pacman -S base-devel --noconfirm
+    #sudo pacman -S make gcc --noconfirm
+    #sudo pacman -S libdwarf --noconfirm
+    
     #install git
     sudo pacman -S git base-devel --noconfirm
     
@@ -74,7 +83,6 @@ elif [ ! -z $(which pacman) ]; then
     #cd asciidocfx
     #makepkg -s --noconfirm
     #cd ..
-    
     
 else
     printf "${RED}Abort: Cannot determine package manager (neither apt nor pacman)${NC}\n"
