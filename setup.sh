@@ -101,7 +101,6 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
     cd ../..
 
     #install volatility (v2.6.1 - Released: December 2018)
-    sudo apt -y install python-distorm3
     sudo apt -y install dwarfdump
     git clone https://github.com/volatilityfoundation/volatility
     #jump through directories because otherwise 'make' fails
