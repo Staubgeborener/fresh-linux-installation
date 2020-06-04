@@ -10,7 +10,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 get_machine_style() {
-    read -p "Is this a forensic machine? That would mean that Sleuthkit, EWF, Xmount, LiME, Volatility, ... (and many more) will also be installed " yn
+    read -p "\nIs this a forensic machine? That would mean that Sleuthkit, EWF, Xmount, LiME, Volatility, ... (and many more) will also be installed [y/n] " yn
     case $yn in
         [Yy]* )
 		return 0
