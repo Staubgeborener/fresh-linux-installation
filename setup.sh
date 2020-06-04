@@ -25,7 +25,7 @@ get_machine_style() {
 }
 
 get_forensic_style() {
-    read -p "Is this "Sleuthkit, EWF, Xmount, LiME, Volatility, ... (and many more)" or "Plaso"? [x/p] " xp
+    read -p "Is this "Sleuthkit, EWF, Xmount, ... (and many more)" [x] or "Plaso" [p]? [x/p] " xp
     case $xp in
         [Xx]* )
 		return 0
@@ -109,7 +109,6 @@ fi
 
 #forensic machine
 if [ "$yn" != "${yn#[Yy]}" ]; then
-
     #install lime
     git clone https://github.com/504ensicsLabs/LiME/
     #jump through directories because otherwise 'make' fails
@@ -127,24 +126,25 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
 
     #forensic machine and apt
     if [ ! -z $(which apt-get) ]; then
-        #install Zeitgeist and Sqilitebrowser
-        sudo apt -y install zeitgeist-explorer
-        sudo apt -y install sqlitebrowser
+        if [ "$xp" != "${xp#[Xx]}" ]; then
+            #install Zeitgeist and Sqilitebrowser
+            sudo apt -y install zeitgeist-explorer
+            sudo apt -y install sqlitebrowser
 
-        #install Sleuthkit, mdadm, EWF, Xmount, Kpartx, cryptsetup and some R00tkit-Hunter
-        sudo apt -y install sleuthkit
-        sudo apt -y install mdadm
-        sudo apt -y install ewf-tools
-        sudo apt -y install xmount
-        sudo apt -y install kpartx
-        sudo apt -y install whois
-        sudo apt -y install cryptsetup-bin
-        sudo apt -y install chkrootkit
-        sudo apt -y install rkhunter
-	
-        #install plaso (support only for Ubuntu 18.04 LTS (bionic) and 20.04 LTS (focal)!)
-        #sudo apt-get -y install plaso-tools
-    
+            #install Sleuthkit, mdadm, EWF, Xmount, Kpartx, cryptsetup and some R00tkit-Hunter
+            sudo apt -y install sleuthkit
+            sudo apt -y install mdadm
+            sudo apt -y install ewf-tools
+            sudo apt -y install xmount
+            sudo apt -y install kpartx
+            sudo apt -y install whois
+            sudo apt -y install cryptsetup-bin
+            sudo apt -y install chkrootkit
+            sudo apt -y install rkhunter
+	else
+            install plaso (support only for Ubuntu 18.04 LTS (bionic) and 20.04 LTS (focal)!)
+            sudo apt-get -y install plaso-tools
+        fi
     #forensic machine and pacman
     elif [ ! -z $(which pacman) ]; then
         #install Zeitgeist and Sqilitebrowser
