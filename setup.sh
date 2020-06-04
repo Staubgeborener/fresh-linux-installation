@@ -142,7 +142,7 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
             sudo apt -y install chkrootkit
             sudo apt -y install rkhunter
 	else
-            install plaso (support only for Ubuntu 18.04 LTS (bionic) and 20.04 LTS (focal)!)
+            #install plaso (support only for Ubuntu 18.04 LTS (bionic) and 20.04 LTS (focal)!)
             sudo apt-get -y install plaso-tools
         fi
     #forensic machine and pacman
