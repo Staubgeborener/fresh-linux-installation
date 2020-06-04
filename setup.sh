@@ -45,9 +45,10 @@ if [ ! -z $(which apt-get) ]; then
     sudo rm AsciidocFX_Linux.tar.gz
 
     #install python, pip and pycharm
-    sudo apt -y install python-pip
-    sudo -H pip install --upgrade pip setuptools
-    sudo -H pip install distorm3 pycrypto openpyxl Pillow
+    #python2 is required for volatility / forensic machine, so...
+    if [ "$yn" != "${yn#[Yy]}" ]; then sudo apt -y install python2.7 python-pip python-dev python-distorm3 && sudo -H pip install pycrypto openpyxl; fi
+    #python3 and pip3
+    sudo apt -y install python3-pip
     sudo apt -y install python3.6
     sudo apt -y install python3-pip
     sudo apt -y install python3-distutils
@@ -91,7 +92,7 @@ fi
 
 #forensic machine
 if [ "$yn" != "${yn#[Yy]}" ]; then
-    
+
     #install lime
     git clone https://github.com/504ensicsLabs/LiME/
     #jump through directories because otherwise 'make' fails
@@ -100,11 +101,11 @@ if [ "$yn" != "${yn#[Yy]}" ]; then
     cd ../..
 
     #install volatility (v2.6.1 - Released: December 2018)
+    sudo apt -y install python-distorm3
+    sudo apt -y install dwarfdump
     git clone https://github.com/volatilityfoundation/volatility
     #jump through directories because otherwise 'make' fails
-    cd ./volatility
-    sudo apt-get install dwarfdump
-    cd ./tools/linux
+    cd ./volatility/tools/linux
     make
     cd ../../..
 
