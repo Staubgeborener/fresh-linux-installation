@@ -41,7 +41,7 @@ get_forensic_style() {
 
 until get_machine_style; do : ; done
 
-if [ "$yn" != "${yn#[Yy]}" ]; then until get_forensic_style; do : ; done
+if [ "$yn" != "${yn#[Yy]}" ]; then $(until get_forensic_style; do : ; done); fi
 
 #APT
 if [ ! -z $(which apt-get) ]; then
