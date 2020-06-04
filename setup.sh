@@ -25,7 +25,7 @@ get_machine_style() {
 }
 
 get_forensic_style() {
-    read -p "Is this "Sleuthkit, EWF, Xmount, ... (and many more)" [x] or "Plaso" [p]? [x/p] " xp
+    read -p "Is this Sleuthkit, EWF, Xmount, ... [x] or Plaso [p]? [x/p] " xp
     case $xp in
         [Xx]* )
 		return 0
