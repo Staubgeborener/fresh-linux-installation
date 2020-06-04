@@ -10,7 +10,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 get_machine_style() {
-    read -p "\nIs this a forensic machine? That would mean that Sleuthkit, EWF, Xmount, LiME, Volatility, ... (and many more) will also be installed [y/n] " yn
+    read -p "Is this a forensic machine? That would mean that Sleuthkit, EWF, Xmount, LiME, Volatility, ... (and many more) will also be installed [y/n] " yn
     case $yn in
         [Yy]* )
 		return 0
@@ -24,7 +24,24 @@ get_machine_style() {
     esac
 }
 
+get_forensic_style() {
+    read -p "Is this "Sleuthkit, EWF, Xmount, LiME, Volatility, ... (and many more)" or "Plaso"? [x/p] " xp
+    case $xp in
+        [Xx]* )
+		return 0
+		;;
+        [Pp]* )
+		return 0
+		;;
+        * ) 	printf "Please answer x (Sleuthkit, ...) or p (Plaso).\n"
+		return 1
+		;;
+    esac
+}
+
 until get_machine_style; do : ; done
+
+if [ "$yn" != "${yn#[Yy]}" ]; then until get_forensic_style; do : ; done
 
 #APT
 if [ ! -z $(which apt-get) ]; then
